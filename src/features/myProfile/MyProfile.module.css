@@ -1,0 +1,16 @@
+.myProfile {
+  width: 90%;
+  display: flex;
+  gap: 2rem;
+  margin: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .myProfile {
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+}

@@ -1,12 +1,20 @@
 import React from 'react';
-/* eslint-disable no-unused-vars */
 import { Routes, Route } from 'react-router-dom';
+import Header from './features/header/Header';
+import MyProfile from './features/myProfile/MyProfile';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App" />
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route path="/" element={<MyProfile />} />
+        <Route path="/rockets" element={<div>Rockets</div>} />
+        <Route path="/missions" element={<div>Missions</div>} />
+      </Routes>
+    </div>
   );
 }
 
