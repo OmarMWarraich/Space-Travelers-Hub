@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import rocketsReducer from '../features/rockets/rocketsSlice';
 
-/* eslint-disable-next-line import/prefer-default-export */
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-
+    rockets: rocketsReducer,
   },
 });
+
+export default store;
