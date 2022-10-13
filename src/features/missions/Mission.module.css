@@ -12,4 +12,5 @@ td:nth-child(3),
 td:nth-child(4) {
   text-align: center;
   vertical-align: middle;
+  font-size: x-large;
 }
