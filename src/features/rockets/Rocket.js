@@ -9,7 +9,6 @@ const Rocket = ({ rocket }) => {
     id, name, description, image,
   } = rocket;
 
-  console.log(id);
   return (
     <Card className="m-5">
       <div className={styles.card}>
@@ -18,7 +17,7 @@ const Rocket = ({ rocket }) => {
           <Card.Body>
             <Card.Title className="fs-3 mt-0">{name}</Card.Title>
             <Card.Text className="fs-4 mt-2 mb-2">{description}</Card.Text>
-            <Button variant="primary" className="p-3 mt-2" style={{ width: '12rem' }}>Reserve Rocket</Button>
+            <Button variant="primary" className="p-3 mt-2" id={id} style={{ width: '12rem' }}>Reserve Rocket</Button>
           </Card.Body>
         </div>
       </div>

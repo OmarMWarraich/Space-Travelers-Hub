@@ -7,7 +7,7 @@ const Rockets = () => {
   const dispatch = useDispatch();
 
   const Rockets = useSelector((state) => state.rockets);
-  console.log(Rockets);
+
   useEffect(() => {
     if (Rockets.length === 0) {
       dispatch(fetchRocketsAsync());

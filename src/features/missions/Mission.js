@@ -22,14 +22,12 @@ const Mission = ({ mission }) => {
     setButtonClass(join === 'Leave Mission' ? 'outline-secondary' : 'outline-danger');
   };
 
-  console.log(id);
-
   return (
     <tr>
       <td className="col-2">{name}</td>
       <td className="col-6">{description}</td>
       <td className="col-2"><Badge className="my-auto" bg={badgeClass}>{member}</Badge></td>
-      <td className="col-2"><Button onClick={joinToggle} variant={buttonClass}>{join}</Button></td>
+      <td className="col-2"><Button onClick={joinToggle} id={id} variant={buttonClass}>{join}</Button></td>
     </tr>
   );
 };

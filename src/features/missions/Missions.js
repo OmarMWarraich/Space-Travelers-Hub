@@ -9,7 +9,6 @@ const Missions = () => {
   const dispatch = useDispatch();
 
   const missionsList = useSelector((state) => state.missions);
-  console.log(missionsList);
 
   useEffect(() => {
     dispatch(fetchMissionsAsync());
