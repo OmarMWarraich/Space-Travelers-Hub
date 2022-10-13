@@ -6,7 +6,6 @@ import { cancelRocket, reserveRocket } from './rocketsSlice';
 import styles from './Rocket.module.css';
 
 const Rocket = ({ rocket }) => {
-  /* eslint-disable-next-line no-unused-vars */
   const {
     id, name, description, image, reserved,
   } = rocket;
