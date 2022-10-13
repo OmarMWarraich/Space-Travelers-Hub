@@ -32,7 +32,6 @@ const Header = () => {
                 <li key={item.id} className="nav-item">
                   <NavLink
                     className="nav-link"
-                    activeClassName="active"
                     to={item.path}
                   >
                     {item.name}
