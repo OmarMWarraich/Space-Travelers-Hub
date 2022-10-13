@@ -16,6 +16,16 @@ export const rocketsSlice = createSlice({
   initialState,
   reducers: {
     renderRockets: (state) => state,
+    reserveRocket: (state, action) => {
+      const index = state.findIndex((rocket) => rocket.id === action.payload);
+      /* eslint-disable-next-line no-param-reassign */
+      state[index].reserved = true;
+    },
+    cancelRocket: (state, action) => {
+      const index = state.findIndex((rocket) => rocket.id === action.payload);
+      /* eslint-disable-next-line no-param-reassign */
+      state[index].reserved = false;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -27,8 +37,6 @@ export const rocketsSlice = createSlice({
   },
 });
 
-export const { renderRockets } = rocketsSlice.actions;
-
-// export const selectRockets = (state) => state.rockets;
+export const { renderRockets, cancelRocket, reserveRocket } = rocketsSlice.actions;
 
 export default rocketsSlice.reducer;
