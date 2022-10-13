@@ -8,13 +8,13 @@ import styles from './Mission.module.css';
 const Missions = () => {
   const dispatch = useDispatch();
 
+  const missionsList = useSelector((state) => state.missions);
+  console.log(missionsList);
+
   useEffect(() => {
     dispatch(fetchMissionsAsync());
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, []);
-
-  const missionsList = useSelector((state) => state.missions);
-  console.log(missionsList);
 
   return (
     <div className={styles.container}>
