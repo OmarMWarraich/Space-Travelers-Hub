@@ -10,7 +10,6 @@ const fetchMissions = async () => {
     description: mission.description,
     reserved: false,
   }));
-
   return missions;
 };
 

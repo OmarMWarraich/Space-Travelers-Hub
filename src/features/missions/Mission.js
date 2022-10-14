@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
@@ -12,40 +12,28 @@ const Mission = ({ mission }) => {
 
   const dispatch = useDispatch();
 
-  const [member, setMember] = useState('NOT A MEMBER');
-  const [join, setJoin] = useState('Join Mission');
-  const [badgeClass, setBadgeClass] = useState('secondary');
-  const [buttonClass, setButtonClass] = useState('outline-secondary');
-
-  /* const joinToggle = () => {
-    setMember(member === 'NOT A MEMBER' ? 'Active Member' : 'NOT A MEMBER');
-    setJoin(join === 'Join Mission' ? 'Leave Mission' : 'Join Mission');
-    setBadgeClass(member === 'NOT A MEMBER' ? 'primary' : 'secondary');
-    setButtonClass(join === 'Leave Mission' ? 'outline-secondary' : 'outline-danger');
-  }; */
-
-  const joinToggle = (e) => {
+  const handleBooking = (e) => {
     if (reserved) {
       dispatch(leaveMission(e.target.id));
-      setMember('NOT A MEMBER');
-      setJoin('Join Mission');
-      setBadgeClass('primary');
-      setButtonClass('outline-secondary');
     } else {
       dispatch(joinMission(e.target.id));
-      setMember('MEMBER');
-      setJoin('Leave Mission');
-      setBadgeClass('secondary');
-      setButtonClass('outline-danger');
     }
   };
 
   return (
-    <tr>
+    <tr className={reserved ? 'table-secondary' : 'table-light'}>
       <td className="col-2">{name}</td>
       <td className="col-6">{description}</td>
-      <td className="col-2"><Badge className="my-auto" bg={badgeClass}>{member}</Badge></td>
-      <td className="col-2"><Button onClick={joinToggle} id={id} variant={buttonClass}>{join}</Button></td>
+      <td className="col-2">
+        <Badge className="my-auto" bg={reserved ? 'success' : 'danger'}>
+          {reserved ? 'Member' : 'Not A Member'}
+        </Badge>
+      </td>
+      <td className="col-2">
+        <Button onClick={handleBooking} id={id} variant={reserved ? 'outline-success success' : 'outline-danger danger'}>
+          {reserved ? 'Leave Mission' : 'Join Mission'}
+        </Button>
+      </td>
     </tr>
   );
 };
