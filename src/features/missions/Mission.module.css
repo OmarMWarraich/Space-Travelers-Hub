@@ -12,8 +12,5 @@ td:nth-child(3),
 td:nth-child(4) {
   text-align: center;
   vertical-align: middle;
-<<<<<<< HEAD
   font-size: x-large;
-=======
->>>>>>> 4edf209 (feat: Mission component display)
 }
