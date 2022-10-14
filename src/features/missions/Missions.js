@@ -14,7 +14,6 @@ const Missions = () => {
     if (missionsList.length === 0) {
       dispatch(fetchMissionsAsync());
     }
-    /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, []);
 
   return (

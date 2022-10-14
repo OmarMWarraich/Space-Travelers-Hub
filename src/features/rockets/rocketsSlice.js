@@ -17,22 +17,22 @@ export const rocketsSlice = createSlice({
   reducers: {
     renderRockets: (state) => state,
     reserveRocket: (state, action) => {
-      const index = state.findIndex((rocket) => rocket.id === action.payload);
-      /* eslint-disable-next-line no-param-reassign */
-      state[index].reserved = true;
+      const newState = state;
+      const index = newState.findIndex((rocket) => rocket.id === action.payload);
+      newState[index].reserved = true;
     },
     cancelRocket: (state, action) => {
-      const index = state.findIndex((rocket) => rocket.id === action.payload);
-      /* eslint-disable-next-line no-param-reassign */
-      state[index].reserved = false;
+      const newState = [...state];
+      const index = newState.findIndex((rocket) => rocket.id === action.payload);
+      newState[index].reserved = false;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRocketsAsync.fulfilled, (state, action) => {
-        /* eslint-disable-next-line no-param-reassign */
-        state = action.payload;
-        return state;
+        let newState = state;
+        newState = action.payload;
+        return newState;
       });
   },
 });

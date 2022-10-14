@@ -9,6 +9,7 @@ const fetchMissions = async () => {
     name: mission.mission_name,
     description: mission.description,
     reserved: false,
+    wiki: mission.wikipedia,
   }));
   return missions;
 };

@@ -10,6 +10,7 @@ const fetchRockets = async () => {
     description: rocket.description,
     image: rocket.flickr_images[0],
     reserved: false,
+    wiki: rocket.wikipedia,
   }));
   return rockets;
 };

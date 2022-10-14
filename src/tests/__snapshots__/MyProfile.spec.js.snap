@@ -13,11 +13,17 @@ exports[`MyProfile page rendering 1`] = `
       <div
         className="card-body"
       >
-        <h5
-          className="card-title"
+        <h1
+          className="cardTitle"
         >
           My Missions
-        </h5>
+        </h1>
+        <hr />
+        <p
+          className="card-text"
+        >
+          No Missions Joined
+        </p>
         <hr />
       </div>
     </div>
@@ -31,11 +37,17 @@ exports[`MyProfile page rendering 1`] = `
       <div
         className="card-body"
       >
-        <h5
-          className="card-title"
+        <h1
+          className="cardTitle"
         >
           My Rockets
-        </h5>
+        </h1>
+        <hr />
+        <p
+          className="card-text"
+        >
+          No Rockets Joined
+        </p>
         <hr />
       </div>
     </div>

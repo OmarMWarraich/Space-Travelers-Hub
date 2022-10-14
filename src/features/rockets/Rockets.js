@@ -12,7 +12,6 @@ const Rockets = () => {
     if (RocketsList.length === 0) {
       dispatch(fetchRocketsAsync());
     }
-    /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, []);
 
   return (

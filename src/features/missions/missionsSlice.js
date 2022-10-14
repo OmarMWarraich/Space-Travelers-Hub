@@ -3,7 +3,6 @@ import fetchMissions from './api';
 
 const initialState = [];
 
-/* eslint-disable-next-line */
 export const fetchMissionsAsync = createAsyncThunk(
   'missions/fetchMissions',
   async (missions) => {
@@ -18,22 +17,22 @@ export const missionsSlice = createSlice({
   reducers: {
     renderMission: (state) => state,
     joinMission: (state, action) => {
-      const index = state.findIndex((mission) => mission.id === action.payload);
-      /* eslint-disable-next-line no-param-reassign */
-      state[index].reserved = true;
+      const newState = state;
+      const index = newState.findIndex((mission) => mission.id === action.payload);
+      newState[index].reserved = true;
     },
     leaveMission: (state, action) => {
-      const index = state.findIndex((mission) => mission.id === action.payload);
-      /* eslint-disable-next-line no-param-reassign */
-      state[index].reserved = false;
+      const newState = state;
+      const index = newState.findIndex((mission) => mission.id === action.payload);
+      newState[index].reserved = false;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMissionsAsync.fulfilled, (state, action) => {
-        /* eslint-disable-next-line */
-        state = action.payload;
-        return state;
+        let newState = state;
+        newState = action.payload;
+        return newState;
       });
   },
 });

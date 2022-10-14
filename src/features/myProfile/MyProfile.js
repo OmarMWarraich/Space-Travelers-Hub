@@ -1,11 +1,25 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { Button } from 'react-bootstrap';
+import { cancelRocket } from '../rockets/rocketsSlice';
+import { leaveMission } from '../missions/missionsSlice';
 import styles from './MyProfile.module.css';
-import Card from './Card';
 
 const MyProfile = () => {
-  const RocketsList = useSelector((state) => state.rockets);
-  const MissionsList = useSelector((state) => state.missions);
+  const rocketsList = useSelector((state) => state.rockets);
+  const rocketsReserved = rocketsList.filter((rocket) => rocket.reserved);
+  const missionsList = useSelector((state) => state.missions);
+  const missionsReserved = missionsList.filter((mission) => mission.reserved);
+
+  const dispatch = useDispatch();
+
+  const cancelMissions = (e) => {
+    dispatch(leaveMission(e.target.id));
+  };
+
+  const cancelRockets = (e) => {
+    dispatch(cancelRocket(+e.target.id));
+  };
 
   return (
     <>
@@ -13,10 +27,29 @@ const MyProfile = () => {
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">My Missions</h5>
+              <h1 className={styles.cardTitle}>My Missions</h1>
               <hr />
-              {MissionsList.filter((mission) => mission.reserved).map((mission) => (
-                <Card key={mission.id} name={mission.name} />))}
+              {(missionsReserved.length === 0) ? (
+                <>
+                  <p className="card-text">No Missions Joined</p>
+                  <hr />
+                </>
+              ) : (
+                missionsReserved.map((mission) => (
+                  <>
+                    <div className={styles.description}>
+                      <h2 className="card-text">{mission.name}</h2>
+                      <a href={mission.wiki} className="card-link">
+                        Read More......
+                      </a>
+                      <Button onClick={cancelMissions} id={mission.id} variant="outline-secondary">
+                        Cancel
+                      </Button>
+                    </div>
+                    <hr />
+                  </>
+                ))
+              )}
             </div>
           </div>
         </div>
@@ -24,10 +57,29 @@ const MyProfile = () => {
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">My Rockets</h5>
+              <h1 className={styles.cardTitle}>My Rockets</h1>
               <hr />
-              {RocketsList.filter((rocket) => rocket.reserved).map((rocket) => (
-                <Card key={rocket.id} name={rocket.name} />))}
+              {rocketsReserved.length === 0 ? (
+                <>
+                  <p className="card-text">No Rockets Joined</p>
+                  <hr />
+                </>
+              ) : (
+                rocketsReserved.map((rocket) => (
+                  <>
+                    <div className={styles.description}>
+                      <h2 className="card-text">{rocket.name}</h2>
+                      <a href={rocket.wiki} className="card-link">
+                        Read More......
+                      </a>
+                      <Button onClick={cancelRockets} id={rocket.id} variant="outline-secondary">
+                        Cancel
+                      </Button>
+                    </div>
+                    <hr />
+                  </>
+                ))
+              )}
             </div>
           </div>
         </div>

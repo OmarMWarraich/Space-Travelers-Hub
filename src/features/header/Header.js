@@ -24,7 +24,6 @@ const Header = () => {
                     exact="false"
                     to={link.to}
                     className="nav-link"
-                    activeClassName="active"
                   >
                     {link.text}
                   </NavLink>
