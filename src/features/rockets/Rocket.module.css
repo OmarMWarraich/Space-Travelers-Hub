@@ -1,0 +1,14 @@
+.card {
+  grid-template-columns: auto auto;
+}
+
+.cardbody {
+  grid-template-rows: auto auto auto;
+  vertical-align: middle;
+}
+
+.card,
+.cardbody {
+  display: grid;
+  margin: auto;
+}
