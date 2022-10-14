@@ -14,7 +14,7 @@ const Missions = () => {
   }, []);
 
   const missionsList = useSelector((state) => state.missions);
-  console.log(missionsList);
+  /* console.log(missionsList); */
 
   return (
     <div className={styles.container}>

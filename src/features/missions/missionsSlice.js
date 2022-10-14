@@ -17,6 +17,16 @@ export const missionsSlice = createSlice({
   initialState,
   reducers: {
     rederMission: (state) => state,
+    joinMission: (state, action) => {
+      const index = state.findIndex((mission) => mission.id === action.payload);
+      /* eslint-disable-next-line no-param-reassign */
+      state[index].reserved = true;
+    },
+    leaveMission: (state, action) => {
+      const index = state.findIndex((mission) => mission.id === action.payload);
+      /* eslint-disable-next-line no-param-reassign */
+      state[index].reserved = false;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -28,6 +38,6 @@ export const missionsSlice = createSlice({
   },
 });
 
-export const { renderMission } = missionsSlice.actions;
+export const { renderMission, joinMission, leaveMission } = missionsSlice.actions;
 
 export default missionsSlice.reducer;

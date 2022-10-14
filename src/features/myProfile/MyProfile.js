@@ -5,6 +5,7 @@ import Card from './Card';
 
 const MyProfile = () => {
   const RocketsList = useSelector((state) => state.rockets);
+  const MissionsList = useSelector((state) => state.missions);
 
   return (
     <>
@@ -12,13 +13,10 @@ const MyProfile = () => {
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">My Profile</h5>
+              <h5 className="card-title">My Missions</h5>
               <hr />
-              <p className="card-text">Name: </p>
-              <hr />
-              <p className="card-text">Email: </p>
-              <hr />
-              <p className="card-text">Phone: </p>
+              {MissionsList.filter((mission) => mission.reserved).map((mission) => (
+                <Card key={mission.id} name={mission.name} />))}
             </div>
           </div>
         </div>
