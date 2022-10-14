@@ -4,6 +4,7 @@
 
 .cardbody {
   grid-template-rows: auto auto auto;
+  vertical-align: middle;
 }
 
 .card,

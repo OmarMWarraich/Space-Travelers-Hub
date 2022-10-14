@@ -6,10 +6,10 @@ import Rocket from './Rocket';
 const Rockets = () => {
   const dispatch = useDispatch();
 
-  const Rockets = useSelector((state) => state.rockets);
+  const RocketsList = useSelector((state) => state.rockets);
 
   useEffect(() => {
-    if (Rockets.length === 0) {
+    if (RocketsList.length === 0) {
       dispatch(fetchRocketsAsync());
     }
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
@@ -18,7 +18,7 @@ const Rockets = () => {
   return (
     <>
       <div>
-        {Rockets.map((rocket) => (
+        {RocketsList.map((rocket) => (
           <Rocket key={rocket.id} rocket={rocket} />
         ))}
       </div>
