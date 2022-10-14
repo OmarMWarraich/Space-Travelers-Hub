@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Badge } from 'react-bootstrap';
 import { cancelRocket, reserveRocket } from './rocketsSlice';
 import styles from './Rocket.module.css';
 
@@ -27,7 +27,10 @@ const Rocket = ({ rocket }) => {
         <div className={styles.cardbody}>
           <Card.Body>
             <Card.Title className="fs-3 mt-0">{name}</Card.Title>
-            <Card.Text className="fs-4 mt-2 mb-2">{description}</Card.Text>
+            <Card.Text className="fs-4 mt-2 mb-2">
+              {!reserved ? '' : <Badge>Reserved</Badge>}
+              {description}
+            </Card.Text>
             <Button
               variant="primary"
               className="p-3 mt-2"
