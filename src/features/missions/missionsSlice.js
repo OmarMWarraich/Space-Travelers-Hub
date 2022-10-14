@@ -16,7 +16,7 @@ export const missionsSlice = createSlice({
   name: 'missions',
   initialState,
   reducers: {
-    rederMission: (state) => state,
+    renderMission: (state) => state,
     joinMission: (state, action) => {
       const index = state.findIndex((mission) => mission.id === action.payload);
       /* eslint-disable-next-line no-param-reassign */
