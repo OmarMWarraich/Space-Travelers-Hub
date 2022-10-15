@@ -1,0 +1,11 @@
+.links ul li {
+  margin: 0 2rem;
+}
+
+.links ul li:hover {
+  cursor: pointer;
+}
+
+.logo {
+  margin-left: 2rem;
+}

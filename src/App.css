@@ -1,0 +1,20 @@
+
+.nav-link {
+  border-bottom: none;
+}
+
+.nav-link.active {
+  border-bottom: 0 solid #f5f5f5;
+}
+
+.nav-link.active:focus {
+  border-bottom: 3px solid #f5f5f5;
+}
+
+.nav-link:hover {
+  border-bottom: 3px solid #ececec;
+}
+
+.navbar-brand {
+  font-size: 3rem;
+}

@@ -1,0 +1,38 @@
+.card {
+  grid-template-columns: auto auto;
+}
+
+.cardbody {
+  grid-template-rows: auto auto auto;
+  vertical-align: middle;
+}
+
+.card,
+.cardbody {
+  display: grid;
+  margin: auto;
+}
+
+.rocket {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card:nth-child(1) {
+    align-content: center;
+  }
+
+  .cardImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
