@@ -21,30 +21,36 @@ const Rocket = ({ rocket }) => {
   };
 
   return (
-    <Card className="m-5">
-      <div className={styles.card}>
-        <Card.Img src={image} style={{ width: '22rem', height: '18rem' }} />
-        <div className={styles.cardbody}>
-          <Card.Body>
-            <Card.Title className="fs-3 mt-0">{name}</Card.Title>
-            <Card.Text className="fs-5 mt-2 mb-2">
-              {!reserved ? '' : <Badge>Reserved</Badge>}
-              {' '}
-              {description}
-            </Card.Text>
-            <Button
-              variant="primary"
-              className="p-3 mt-2"
-              id={id}
-              style={{ width: '12rem' }}
-              onClick={handleReservation}
-            >
-              {reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
-            </Button>
-          </Card.Body>
-        </div>
+    <>
+      <div className={styles.rocket}>
+        <Card className="m-5">
+          <div className={styles.card}>
+            <div className={styles.cardImg}>
+              <Card.Img src={image} style={{ width: '22rem', height: '18rem' }} />
+            </div>
+            <div className={styles.cardbody}>
+              <Card.Body>
+                <Card.Title className="fs-3 mt-0">{name}</Card.Title>
+                <Card.Text className="fs-5 mt-2 mb-2">
+                  {!reserved ? '' : <Badge>Reserved</Badge>}
+                  {' '}
+                  {description}
+                </Card.Text>
+                <Button
+                  variant="primary"
+                  className="p-3 mt-2"
+                  id={id}
+                  style={{ width: '12rem' }}
+                  onClick={handleReservation}
+                >
+                  {reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+                </Button>
+              </Card.Body>
+            </div>
+          </div>
+        </Card>
       </div>
-    </Card>
+    </>
   );
 };
 
