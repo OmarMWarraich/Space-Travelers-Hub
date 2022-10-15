@@ -18,7 +18,7 @@
 
 ## Live Demo 
 
-[Click Me!](https://spacex-ova.netlify.app)
+[Click Me!](https://spacexova.netlify.app)
 
 ## Getting Started
 

@@ -31,7 +31,7 @@ const MyProfile = () => {
               <hr />
               {(missionsReserved.length === 0) ? (
                 <>
-                  <p className="card-text">No Missions Joined</p>
+                  <h3 className="text-center">No Missions Joined</h3>
                   <hr />
                 </>
               ) : (
@@ -61,7 +61,7 @@ const MyProfile = () => {
               <hr />
               {rocketsReserved.length === 0 ? (
                 <>
-                  <p className="card-text">No Rockets Joined</p>
+                  <h3 className="text-center">No Rockets Joined</h3>
                   <hr />
                 </>
               ) : (
